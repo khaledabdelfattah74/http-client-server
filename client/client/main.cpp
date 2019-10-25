@@ -7,9 +7,12 @@
 //
 
 #include <iostream>
+#include "client_manager.hpp"
+
+using namespace std;
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    Client* client = new Client();
+    client->initiate();
     return 0;
 }

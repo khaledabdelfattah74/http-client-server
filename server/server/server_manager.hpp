@@ -10,5 +10,20 @@
 #define server_manager_hpp
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <unistd.h>
+#include <string>
+
+using namespace std;
+
+#define PORT 80
+#define BACKLOG_COUNT 1000
+
+class Server {
+public:
+    void initiate(int port_number=PORT);
+};
 
 #endif /* server_manager_hpp */

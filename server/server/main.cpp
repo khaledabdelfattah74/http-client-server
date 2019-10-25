@@ -7,9 +7,12 @@
 //
 
 #include <iostream>
+#include "server_manager.hpp"
+
+using namespace std;
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    Server* server = new Server();
+    server->initiate();
     return 0;
 }

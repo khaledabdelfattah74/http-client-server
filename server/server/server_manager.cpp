@@ -7,6 +7,7 @@
 //
 
 #include "server_manager.hpp"
+#include "request_handler.hpp"
 
 void Server::initiate(int port_number) {
     int server_fd;
@@ -53,12 +54,7 @@ void Server::initiate(int port_number) {
         /**
             Handling requests from clients. It will be in multi-threaded manner.
          */
-        
-        string hello = "Hello from server";
-        char buffer[1024] = {0};
-        read(new_socket_fd, buffer, 1024);
-        printf("%s\n", buffer);
-        send(new_socket_fd, &hello, hello.length() + 1, 0);
-        printf("Hello message sent from server\n");
+        thread client_proc(establish_connection, new_socket_fd);
+        client_proc.detach();
     }
 }

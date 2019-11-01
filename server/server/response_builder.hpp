@@ -14,11 +14,12 @@
 #include <fstream>
 #include "request.hpp"
 #include "response.hpp"
+#include "utilities.hpp"
 
 using namespace std;
 
 #define OK_STATUS "HTTP/1.1 200 OK\r\n"
-#define NOT_FOUND_STATUS "HTTP/1.1 404 Not Found\r\n\r\n"
+#define NOT_FOUND_STATUS "HTTP/1.1 404 Not Found\r\n"
 
 response* build_response(request* req);
 

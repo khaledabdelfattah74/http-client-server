@@ -9,7 +9,7 @@
 #ifndef constants_hpp
 #define constants_hpp
 
-#define BUFFER_SIZE 1024
+#define BUFFER_SIZE 262144
 
 enum REQUEST_TYPE {
     GET,

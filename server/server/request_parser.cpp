@@ -10,27 +10,23 @@
 
 void parse_request_line(request *, string);
 void parse_request_headers(request *, vector<string>);
-void parse_request_body(request *, vector<string>);
 
-request* parse_request(string request_body) {
-    vector<string> lines = split(request_body, "\r\n");
+request* parse_request(char* request_body) {
+    string body_string = request_body;
+    long long int seperate_line_index = body_string.find("\r\n\r\n");
+    vector<string> headers = split(body_string.substr(0, seperate_line_index), "\r\n");
+    
     request* parsed_request = new request();
-    parse_request_line(parsed_request, lines[0]);
-    vector<string> headers;
-    int i = 1;
-    for (; i < lines.size(); i++) {
-        if (lines[i].find(":") == string::npos)
-            break;
-        headers.push_back(lines[i]);
-    }
-    parse_request_headers(parsed_request, headers);
-    vector<string> body;
-    for (; i < lines.size(); i++) {
-        body.push_back(lines[i]);
-    }
-    if (body.size())
-        parse_request_body(parsed_request, body);
+    parse_request_line(parsed_request, headers[0]);
+    parse_request_headers(parsed_request, vector<string>(headers.begin() + 1, headers.end()));
 
+    if (seperate_line_index + 4 != string::npos) {
+        long long int len = parsed_request->get_content_length(),
+            idx = seperate_line_index + 4;
+        parsed_request->body = new char[len];
+        for (int i = 0; i < len; i++)
+            parsed_request->body[i] = request_body[idx + i];
+    }
     return parsed_request;
 }
 
@@ -56,11 +52,4 @@ void parse_request_headers(request *req, vector<string> headers) {
         string value = header.substr(coln_pos + 2);
         req->headers[key] = value;
     }
-}
-
-void parse_request_body(request* req, vector<string> body_lines) {
-    string body = "";
-    for (string line : body_lines)
-        body += (line + "\n");
-    req->body = body;
 }

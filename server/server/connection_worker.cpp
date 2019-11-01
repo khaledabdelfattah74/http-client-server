@@ -31,11 +31,10 @@ void send_response_headers(int client_socket_fd, response* response) {
          header != response->headers.end(); header++) {
         headers += (header->first + ": " + header->second + "\n");
     }
-    headers += "\n";
+    headers += "\r\n";
     send(client_socket_fd, headers.c_str(), headers.length(), 0);
 }
 
 void send_response_body(int client_socket_fd, response* response) {
-    long long int length = atoi(response->headers["Content-Length"].c_str());
-    send(client_socket_fd, response->body, length, 0);
+    send(client_socket_fd, response->body, response->get_content_length(), 0);
 }

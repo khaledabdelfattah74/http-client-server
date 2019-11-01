@@ -20,6 +20,7 @@ typedef struct request {
     enum REQUEST_TYPE request_type;
     string file_path;
     string protocol;
+    string body;
     // map with key is the header type and value is the value of this header
     map<string, string> headers;
 } request;

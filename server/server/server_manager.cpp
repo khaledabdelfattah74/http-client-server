@@ -19,14 +19,6 @@ void Server::initiate(int port_number) {
         exit(EXIT_FAILURE);
     }
     
-//    int optiona = 1;
-//    int set_skt_status = setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT,
-//                            &optiona, sizeof(optiona));
-//    if (set_skt_status < 0) {
-//        perror("Setting server socket to port 80 failed");
-//        exit(EXIT_FAILURE);
-//    }
-    
     server_addr.sin_family = AF_INET;
     server_addr.sin_addr.s_addr = INADDR_ANY;
     server_addr.sin_port = htons(port_number);

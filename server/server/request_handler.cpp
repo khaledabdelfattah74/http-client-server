@@ -8,8 +8,8 @@
 
 #include "request_handler.hpp"
 
-char* handle_request(string request_body) {
+response* handle_request(string request_body) {
     request* req = parse_request(request_body);
-    char *response = build_response(req);
+    response* response = build_response(req);
     return response;
 }

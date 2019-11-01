@@ -11,10 +11,15 @@
 
 #include <stdio.h>
 #include <string>
+#include <fstream>
 #include "request.hpp"
+#include "response.hpp"
 
 using namespace std;
 
-char* build_response(request* req);
+#define OK_STATUS "HTTP/1.1 200 OK\r\n"
+#define NOT_FOUND_STATUS "HTTP/1.1 404 Not Found\r\n\r\n"
+
+response* build_response(request* req);
 
 #endif /* response_builder_hpp */

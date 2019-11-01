@@ -15,6 +15,7 @@
 #include <algorithm>
 #include <sstream>
 #include <vector>
+#include <sstream>
 
 using namespace std;
 
@@ -25,5 +26,6 @@ string erase_char (string* str, char ch);
 string remove_trailing_spaces (string);
 string concatenate_lines (vector<string>);
 vector<string> split(string input, const char *delimiter);
+vector<string> get_lines(string);
 
 #endif /* utilities_hpp */

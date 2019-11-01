@@ -64,3 +64,14 @@ vector<string> split(string input, const char *delimiter) {
     }
     return lines;
 }
+
+vector<string> get_lines(string input) {
+    vector<string> lines;
+    istringstream stream(input);
+    string line;
+    while (getline(stream, line)) {
+        lines.push_back(line);
+    }
+    return lines;
+}
+

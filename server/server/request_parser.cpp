@@ -10,13 +10,27 @@
 
 void parse_request_line(request *, string);
 void parse_request_headers(request *, vector<string>);
+void parse_request_body(request *, vector<string>);
 
 request* parse_request(string request_body) {
     vector<string> lines = split(request_body, "\r\n");
     request* parsed_request = new request();
     parse_request_line(parsed_request, lines[0]);
-    vector<string> headers(lines.begin() + 1, lines.end());
+    vector<string> headers;
+    int i = 1;
+    for (; i < lines.size(); i++) {
+        if (lines[i].find(":") == string::npos)
+            break;
+        headers.push_back(lines[i]);
+    }
     parse_request_headers(parsed_request, headers);
+    vector<string> body;
+    for (; i < lines.size(); i++) {
+        body.push_back(lines[i]);
+    }
+    if (body.size())
+        parse_request_body(parsed_request, body);
+
     return parsed_request;
 }
 
@@ -42,4 +56,11 @@ void parse_request_headers(request *req, vector<string> headers) {
         string value = header.substr(coln_pos + 2);
         req->headers[key] = value;
     }
+}
+
+void parse_request_body(request* req, vector<string> body_lines) {
+    string body = "";
+    for (string line : body_lines)
+        body += (line + "\n");
+    req->body = body;
 }

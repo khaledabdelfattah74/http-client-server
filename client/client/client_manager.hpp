@@ -11,21 +11,17 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <sys/types.h>
-#include <arpa/inet.h>
-#include <netdb.h>
-#include <unistd.h>
 #include <string>
+#include "socket_manager.hpp"
+#include "file_reader.hpp"
+#include "request_parser.hpp"
+#include "request_handler.hpp"
 
 using namespace std;
 
-#define PORT 80
-
 class Client {
 public:
-    void initiate(int port_number=PORT);
+    void initiate(string host_name=LOCALHOST, int port_number=PORT);
 };
 
 #endif /* client_manager_hpp */

@@ -1,8 +1,8 @@
 //
 //  request_parser.hpp
-//  server
+//  client
 //
-//  Created by Khaled Abdelfattah on 10/25/19.
+//  Created by Khaled Abdelfattah on 11/2/19.
 //  Copyright © 2019 Khaled Abdelfattah. All rights reserved.
 //
 
@@ -13,10 +13,11 @@
 #include <string>
 #include <vector>
 #include "request.hpp"
-#include "utilities.hpp"
+#include "../../server/server/utilities.hpp"
 
 using namespace std;
 
-request* parse_request(string request_body);
+request* parse_client_request(string);
+vector<request*> parse_client_requests(vector<string>);
 
 #endif /* request_parser_hpp */

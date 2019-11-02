@@ -29,7 +29,7 @@ void send_response_headers(int client_socket_fd, response* response) {
     headers += response->status;
     for (map<string, string>::iterator header = response->headers.begin();
          header != response->headers.end(); header++) {
-        headers += (header->first + ": " + header->second + "\n");
+        headers += (header->first + ": " + header->second + "\r\n");
     }
     headers += "\r\n";
     send(client_socket_fd, headers.c_str(), headers.length(), 0);

@@ -11,10 +11,9 @@
 void parse_request_line(request *, string);
 void parse_request_headers(request *, vector<string>);
 
-request* parse_request(char* request_body) {
-    string body_string = request_body;
-    long long int seperate_line_index = body_string.find("\r\n\r\n");
-    vector<string> headers = split(body_string.substr(0, seperate_line_index), "\r\n");
+request* parse_request(string request_body) {
+    long long int seperate_line_index = request_body.find("\r\n\r\n");
+    vector<string> headers = split(request_body.substr(0, seperate_line_index), "\r\n");
     
     request* parsed_request = new request();
     parse_request_line(parsed_request, headers[0]);
@@ -24,8 +23,7 @@ request* parse_request(char* request_body) {
         long long int len = parsed_request->get_content_length(),
             idx = seperate_line_index + 4;
         parsed_request->body = new char[len];
-        for (int i = 0; i < len; i++)
-            parsed_request->body[i] = request_body[idx + i];
+        request_body.copy(parsed_request->body, len, idx);
     }
     return parsed_request;
 }

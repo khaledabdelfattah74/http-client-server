@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E919DD89236CE08C00A2C34C /* file_reader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E919DD87236CE08C00A2C34C /* file_reader.cpp */; };
+		E919DD8C236CEB6500A2C34C /* socket_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E919DD8A236CEB6500A2C34C /* socket_manager.cpp */; };
+		E919DD91236CF04100A2C34C /* request_parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E919DD8F236CF04100A2C34C /* request_parser.cpp */; };
+		E919DD94236CF86400A2C34C /* utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E919DD92236CF86400A2C34C /* utilities.cpp */; };
+		E919DD97236D02A800A2C34C /* request_handler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E919DD95236D02A800A2C34C /* request_handler.cpp */; };
 		E91F47D82362164400FE0329 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E91F47D72362164400FE0329 /* main.cpp */; };
 		E91F47E4236268C400FE0329 /* client_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E91F47E2236268C400FE0329 /* client_manager.cpp */; };
+		E95D7A6A236DB82B0002E198 /* response_parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95D7A68236DB82B0002E198 /* response_parser.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,10 +30,25 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E919DD87236CE08C00A2C34C /* file_reader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = file_reader.cpp; sourceTree = "<group>"; };
+		E919DD88236CE08C00A2C34C /* file_reader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = file_reader.hpp; sourceTree = "<group>"; };
+		E919DD8A236CEB6500A2C34C /* socket_manager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = socket_manager.cpp; sourceTree = "<group>"; };
+		E919DD8B236CEB6500A2C34C /* socket_manager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = socket_manager.hpp; sourceTree = "<group>"; };
+		E919DD8D236CEC3A00A2C34C /* constants.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = constants.hpp; sourceTree = "<group>"; };
+		E919DD8E236CEF3300A2C34C /* request.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = request.hpp; sourceTree = "<group>"; };
+		E919DD8F236CF04100A2C34C /* request_parser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = request_parser.cpp; sourceTree = "<group>"; };
+		E919DD90236CF04100A2C34C /* request_parser.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = request_parser.hpp; sourceTree = "<group>"; };
+		E919DD92236CF86400A2C34C /* utilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = utilities.cpp; path = ../../server/server/utilities.cpp; sourceTree = "<group>"; };
+		E919DD93236CF86400A2C34C /* utilities.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = utilities.hpp; path = ../../server/server/utilities.hpp; sourceTree = "<group>"; };
+		E919DD95236D02A800A2C34C /* request_handler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = request_handler.cpp; sourceTree = "<group>"; };
+		E919DD96236D02A800A2C34C /* request_handler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = request_handler.hpp; sourceTree = "<group>"; };
 		E91F47D42362164400FE0329 /* client */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = client; sourceTree = BUILT_PRODUCTS_DIR; };
 		E91F47D72362164400FE0329 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		E91F47E2236268C400FE0329 /* client_manager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = client_manager.cpp; sourceTree = "<group>"; };
 		E91F47E3236268C400FE0329 /* client_manager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = client_manager.hpp; sourceTree = "<group>"; };
+		E95D7A67236DB5D60002E198 /* response.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = response.hpp; sourceTree = "<group>"; };
+		E95D7A68236DB82B0002E198 /* response_parser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = response_parser.cpp; sourceTree = "<group>"; };
+		E95D7A69236DB82B0002E198 /* response_parser.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = response_parser.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +82,23 @@
 			isa = PBXGroup;
 			children = (
 				E91F47D72362164400FE0329 /* main.cpp */,
+				E95D7A67236DB5D60002E198 /* response.hpp */,
+				E95D7A68236DB82B0002E198 /* response_parser.cpp */,
+				E95D7A69236DB82B0002E198 /* response_parser.hpp */,
 				E91F47E2236268C400FE0329 /* client_manager.cpp */,
+				E919DD8E236CEF3300A2C34C /* request.hpp */,
 				E91F47E3236268C400FE0329 /* client_manager.hpp */,
+				E919DD87236CE08C00A2C34C /* file_reader.cpp */,
+				E919DD88236CE08C00A2C34C /* file_reader.hpp */,
+				E919DD95236D02A800A2C34C /* request_handler.cpp */,
+				E919DD96236D02A800A2C34C /* request_handler.hpp */,
+				E919DD8A236CEB6500A2C34C /* socket_manager.cpp */,
+				E919DD92236CF86400A2C34C /* utilities.cpp */,
+				E919DD93236CF86400A2C34C /* utilities.hpp */,
+				E919DD8B236CEB6500A2C34C /* socket_manager.hpp */,
+				E919DD8D236CEC3A00A2C34C /* constants.hpp */,
+				E919DD8F236CF04100A2C34C /* request_parser.cpp */,
+				E919DD90236CF04100A2C34C /* request_parser.hpp */,
 			);
 			path = client;
 			sourceTree = "<group>";
@@ -123,8 +159,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E919DD97236D02A800A2C34C /* request_handler.cpp in Sources */,
+				E919DD94236CF86400A2C34C /* utilities.cpp in Sources */,
 				E91F47E4236268C400FE0329 /* client_manager.cpp in Sources */,
+				E919DD89236CE08C00A2C34C /* file_reader.cpp in Sources */,
+				E919DD91236CF04100A2C34C /* request_parser.cpp in Sources */,
+				E919DD8C236CEB6500A2C34C /* socket_manager.cpp in Sources */,
 				E91F47D82362164400FE0329 /* main.cpp in Sources */,
+				E95D7A6A236DB82B0002E198 /* response_parser.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

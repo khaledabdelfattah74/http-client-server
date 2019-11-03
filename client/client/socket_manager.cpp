@@ -37,12 +37,10 @@ int build_socket(string host_name, int port_number) {
     return client_fd;
 }
 
-long long int send_through_socket(int socket_fd, char* buffer, long long int size) {
+long long int send_through_socket(int socket_fd, char buffer[], long long int size) {
     return send(socket_fd, buffer, size, 0);
 }
 
-char* read_from_socket(int socket_fd) {
-    char* buffer = new char[BUFFER_SIZE];
+void read_from_socket(int socket_fd, char buffer[]) {
     read(socket_fd, buffer, BUFFER_SIZE);
-    return buffer;
 }

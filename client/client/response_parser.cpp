@@ -10,22 +10,21 @@
 
 void parse_response_status(response*, string);
 void parse_response_headers(response*, vector<string>);
-void parse_response_content(response*, string, int, long long int);
+void parse_response_content(response*, char*, long long int, long long int);
 
-response* parse_response(string body) {
+response* parse_response(char* body) {
     response* response = new struct response();
-    long long int seperate_line_index = body.find("\r\n\r\n");
-    vector<string> headers = split(body.substr(0, seperate_line_index), "\r\n");
+    string body_str = body;
+    long long int seperate_line_index = body_str.find("\r\n\r\n");
+    vector<string> headers = split(body_str.substr(0, seperate_line_index), "\r\n");
     
     parse_response_status(response, headers[0]);
     parse_response_headers(response, vector<string>(headers.begin() + 1, headers.end()));
     
     if (response->status == OK && seperate_line_index + 4 != string::npos) {
-        long long length = response->get_content_length();
-//        parse_response_content(response, body, seperate_line_index + 4, length);
-        response->content = new char[length];
-        body.copy(response->content, length, seperate_line_index + 4);
-//        response->content = body.substr(seperate_line_index + 4, seperate_line_index + 4 + length);
+        long long int length = response->get_content_length(),
+            idx = seperate_line_index + 4;
+        parse_response_content(response, body, idx, length);
     }
     return response;
 }
@@ -48,8 +47,9 @@ void parse_response_headers(response* response, vector<string> headers) {
     }
 }
 
-void parse_response_content(response* response, string body, int start_idx, long long int length) {
-    response->content = "";
-    for (int i = 0, j = start_idx; i < length; i++, j++)
-        response->content += body[j];
+void parse_response_content(response* response, char* body,
+                            long long int start_idx, long long int length) {
+    response->content = new char[length];
+    for (int i = 0; i < length; i++)
+        response->content[i] = body[start_idx + i];
 }

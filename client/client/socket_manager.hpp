@@ -23,7 +23,7 @@
 using namespace std;
 
 int build_socket(string host_name=LOCALHOST, int port_number=PORT);
-long long int send_through_socket(int, char*, long long int);
-char* read_from_socket(int);
+long long int send_through_socket(int, char[], long long int);
+void read_from_socket(int, char[]);
 
 #endif /* socket_manager_hpp */

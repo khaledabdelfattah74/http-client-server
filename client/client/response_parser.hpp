@@ -16,6 +16,6 @@
 
 using namespace std;
 
-response* parse_response(string);
+response* parse_response(char*);
 
 #endif /* response_parser_hpp */

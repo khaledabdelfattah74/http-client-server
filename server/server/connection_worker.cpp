@@ -8,33 +8,19 @@
 
 #include "connection_worker.hpp"
 
-void send_response_headers(int, response*);
 void send_response_body(int, response*);
 
 void establish_connection(int client_socket_fd) {
-    char buffer[BUFFER_SIZE] = {0};
+    char buffer[BUFFER_SIZE];
     read(client_socket_fd, buffer, BUFFER_SIZE);
     printf("%s\n", buffer);
-    
-    response* response = handle_request(buffer);
-    send_response_headers(client_socket_fd, response);
-    
-    if (response->request_type == GET && response->status == OK_STATUS) {
-        send_response_body(client_socket_fd, response);
-    }
-}
+    if (!strlen(buffer))
+        return;
 
-void send_response_headers(int client_socket_fd, response* response) {
-    string headers = "";
-    headers += response->status;
-    for (map<string, string>::iterator header = response->headers.begin();
-         header != response->headers.end(); header++) {
-        headers += (header->first + ": " + header->second + "\r\n");
-    }
-    headers += "\r\n";
-    send(client_socket_fd, headers.c_str(), headers.length(), 0);
+    response* response = handle_request(buffer);
+    send_response_body(client_socket_fd, response);
 }
 
 void send_response_body(int client_socket_fd, response* response) {
-    send(client_socket_fd, response->body, response->get_content_length(), 0);
+    send(client_socket_fd, response->body, response->response_length, 0);
 }

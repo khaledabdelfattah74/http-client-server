@@ -35,6 +35,7 @@ response* build_response(request* req) {
             response->set_connection_status("keep-alive");
             set_response_content(infile, response);
             infile.close();
+            response->build_response_body();
         }
     } else if (req->request_type == POST) {
         ofstream outfile;
@@ -42,6 +43,7 @@ response* build_response(request* req) {
         outfile.write(req->body, req->get_content_length());
         outfile.close();
         response->status = OK_STATUS;
+        response->build_response_body();
     }
     return response;
 }

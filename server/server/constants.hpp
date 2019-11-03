@@ -11,6 +11,9 @@
 
 #define BUFFER_SIZE 262144
 
+#define OK_STATUS "HTTP/1.1 200 OK\r\n"
+#define NOT_FOUND_STATUS "HTTP/1.1 404 Not Found\r\n"
+
 enum REQUEST_TYPE {
     GET,
     POST

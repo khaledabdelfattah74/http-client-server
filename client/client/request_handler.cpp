@@ -31,4 +31,5 @@ void handle_requests(vector<request*> requests) {
             write_into_file(path, response->content, response->get_content_length());
         }
     }
+    close(socket_fd);
 }

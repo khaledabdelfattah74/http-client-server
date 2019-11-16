@@ -9,8 +9,7 @@
 #include "request_handler.hpp"
 
 response* handle_request(request* request) {
-    int socket_fd = build_socket(request->headers["Host"], request->port_number);
-    request->client_socket_fd = socket_fd;
+    int socket_fd = request->client_socket_fd;
     request->buid_request_body();
     send_through_socket(socket_fd, request->body, request->request_length);
     char buffer[BUFFER_SIZE];
@@ -21,7 +20,11 @@ response* handle_request(request* request) {
 }
 
 void handle_requests(vector<request*> requests) {
+    request* first_request = *requests.begin();
+    int socket_fd = build_socket(first_request->headers["Host"], first_request->port_number);
+    
     for (request* request : requests) {
+        request->client_socket_fd = socket_fd;
         response* response = handle_request(request);
         if (response->status == OK && request->request_type == GET) {
             string path = "/Users/khaledabdelfattah/Documents/workspace/networks/HTTP-Client-Server/client/client/storage/" + request->file_path;

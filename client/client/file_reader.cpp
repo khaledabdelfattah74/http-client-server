@@ -8,7 +8,7 @@
 
 #include "file_reader.hpp"
 
-vector<string> read_file(string path) {
+vector<string> read_from_file(string path) {
     ifstream input_file(path);
     vector<string> lines;
     if (input_file.is_open()) {

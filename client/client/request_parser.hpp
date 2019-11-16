@@ -18,6 +18,6 @@
 using namespace std;
 
 request* parse_client_request(string);
-vector<request*> parse_client_requests(vector<string>);
+map<pair<string, int>, vector<request*>> parse_client_requests(vector<string>);
 
 #endif /* request_parser_hpp */

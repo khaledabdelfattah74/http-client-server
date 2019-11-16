@@ -12,13 +12,18 @@ void send_response_body(int, response*);
 
 void establish_connection(int client_socket_fd) {
     char buffer[BUFFER_SIZE];
-    read(client_socket_fd, buffer, BUFFER_SIZE);
-    printf("%s\n", buffer);
-    if (!strlen(buffer))
-        return;
 
-    response* response = handle_request(buffer);
-    send_response_body(client_socket_fd, response);
+    while (true) {
+        read(client_socket_fd, buffer, BUFFER_SIZE);
+        printf("%s\n", buffer);
+        if (!strlen(buffer))
+            break;
+        
+        response* response = handle_request(buffer);
+        send_response_body(client_socket_fd, response);
+        memset(buffer, 0, BUFFER_SIZE);
+    }
+    close(client_socket_fd);
 }
 
 void send_response_body(int client_socket_fd, response* response) {

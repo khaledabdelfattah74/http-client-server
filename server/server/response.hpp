@@ -23,6 +23,10 @@ typedef struct response {
     char* body;
     long long int response_length;
     
+    response() {
+        this->headers["Content-Length"] = "0";
+    }
+    
     void set_request_type(enum REQUEST_TYPE type) {
         this->request_type = type;
     }

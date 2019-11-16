@@ -17,7 +17,7 @@
 
 using namespace std;
 
-vector<string> read_file(string);
+vector<string> read_from_file(string);
 void write_into_file(string, char*, long long int);
 
 #endif /* file_reader_hpp */

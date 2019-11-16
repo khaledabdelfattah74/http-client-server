@@ -10,11 +10,14 @@
 
 void Client::initiate(string host_name, int port_number) {
     int client_fd = build_socket(host_name, port_number);
-    vector<string> client_requests = read_file("/Users/khaledabdelfattah/Documents/workspace/networks/HTTP-Client-Server/client/client/input_file.txt");
+    vector<string> client_requests = read_from_file("/Users/khaledabdelfattah/Documents/workspace/networks/HTTP-Client-Server/client/client/input_file.txt");
     // Parsing requests
-    vector<request*> requests = parse_client_requests(client_requests);
+    map<pair<string, int>, vector<request*>> requests = parse_client_requests(client_requests);
     // Handling requests
-    handle_requests(requests);
+    for (map<pair<string, int>, vector<request*>>::iterator itr = requests.begin();
+         itr != requests.end(); itr++) {
+        handle_requests(itr->second);
+    }
     
     close(client_fd);
 }

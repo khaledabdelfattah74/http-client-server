@@ -1,4 +1,2 @@
-client_get index.html localhost 80
-client_get error.html localhost 80
 client_get test.html localhost 80
-client_get new.png localhost 80
+client_get rails.png localhost 80

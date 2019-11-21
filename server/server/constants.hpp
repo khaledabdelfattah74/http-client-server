@@ -9,7 +9,7 @@
 #ifndef constants_hpp
 #define constants_hpp
 
-#define BUFFER_SIZE 262144
+#define BUFFER_SIZE 4096
 
 #define OK_STATUS "HTTP/1.1 200 OK\r\n"
 #define NOT_FOUND_STATUS "HTTP/1.1 404 Not Found\r\n"

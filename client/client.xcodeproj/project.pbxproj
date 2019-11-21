@@ -12,6 +12,7 @@
 		E919DD91236CF04100A2C34C /* request_parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E919DD8F236CF04100A2C34C /* request_parser.cpp */; };
 		E919DD94236CF86400A2C34C /* utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E919DD92236CF86400A2C34C /* utilities.cpp */; };
 		E919DD97236D02A800A2C34C /* request_handler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E919DD95236D02A800A2C34C /* request_handler.cpp */; };
+		E91A46AC2384B22B009C44C4 /* response_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E91A46AA2384B22B009C44C4 /* response_manager.cpp */; };
 		E91F47D82362164400FE0329 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E91F47D72362164400FE0329 /* main.cpp */; };
 		E91F47E4236268C400FE0329 /* client_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E91F47E2236268C400FE0329 /* client_manager.cpp */; };
 		E95D7A6A236DB82B0002E198 /* response_parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95D7A68236DB82B0002E198 /* response_parser.cpp */; };
@@ -42,6 +43,8 @@
 		E919DD93236CF86400A2C34C /* utilities.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = utilities.hpp; path = ../../server/server/utilities.hpp; sourceTree = "<group>"; };
 		E919DD95236D02A800A2C34C /* request_handler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = request_handler.cpp; sourceTree = "<group>"; };
 		E919DD96236D02A800A2C34C /* request_handler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = request_handler.hpp; sourceTree = "<group>"; };
+		E91A46AA2384B22B009C44C4 /* response_manager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = response_manager.cpp; sourceTree = "<group>"; };
+		E91A46AB2384B22B009C44C4 /* response_manager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = response_manager.hpp; sourceTree = "<group>"; };
 		E91F47D42362164400FE0329 /* client */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = client; sourceTree = BUILT_PRODUCTS_DIR; };
 		E91F47D72362164400FE0329 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		E91F47E2236268C400FE0329 /* client_manager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = client_manager.cpp; sourceTree = "<group>"; };
@@ -99,6 +102,8 @@
 				E919DD8D236CEC3A00A2C34C /* constants.hpp */,
 				E919DD8F236CF04100A2C34C /* request_parser.cpp */,
 				E919DD90236CF04100A2C34C /* request_parser.hpp */,
+				E91A46AA2384B22B009C44C4 /* response_manager.cpp */,
+				E91A46AB2384B22B009C44C4 /* response_manager.hpp */,
 			);
 			path = client;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 				E919DD91236CF04100A2C34C /* request_parser.cpp in Sources */,
 				E919DD8C236CEB6500A2C34C /* socket_manager.cpp in Sources */,
 				E91F47D82362164400FE0329 /* main.cpp in Sources */,
+				E91A46AC2384B22B009C44C4 /* response_manager.cpp in Sources */,
 				E95D7A6A236DB82B0002E198 /* response_parser.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

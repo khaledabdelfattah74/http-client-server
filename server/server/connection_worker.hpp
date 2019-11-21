@@ -15,7 +15,9 @@
 #include <sys/time.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <algorithm>
 #include "request_handler.hpp"
+#include "request.hpp"
 
 using namespace std;
 

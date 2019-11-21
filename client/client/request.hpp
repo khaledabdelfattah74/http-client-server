@@ -64,13 +64,15 @@ typedef struct request {
             infile.seekg (0, ios::beg);
             char file_content[length];
             infile.read(file_content, length);
-            this->request_length = length + headers.length();
+            this->request_length = length + headers.length() + 2;
             this->body = new char[this->request_length];
             int i = 0;
             for (; i < headers.length(); i++)
                 this->body[i] = headers[i];
-            for (int j = 0; i < this->request_length; i++, j++)
+            for (int j = 0; j < this->get_content_length(); i++, j++)
                 this->body[i] = file_content[j];
+            this->body[i++] = '\r';
+            this->body[i] = '\n';
         }
     }
 } request;

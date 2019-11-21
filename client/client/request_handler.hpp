@@ -15,10 +15,11 @@
 #include "socket_manager.hpp"
 #include "response_parser.hpp"
 #include "file_reader.hpp"
+#include "response_manager.hpp"
 
 using namespace std;
 
-response* handle_request(request*);
+void handle_request(request*);
 void handle_requests(vector<request*>);
 
 #endif /* request_handler_hpp */

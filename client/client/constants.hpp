@@ -11,7 +11,7 @@
 
 #define PORT 80
 #define LOCALHOST "localhost"
-#define BUFFER_SIZE 262144
+#define BUFFER_SIZE 4096
 #define HTTP "HTTP/1.1"
 #define CLIENT_GET "client_get"
 #define CLIENT_POST "client_post"

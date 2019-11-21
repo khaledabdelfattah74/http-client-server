@@ -12,20 +12,20 @@ void parse_response_status(response*, string);
 void parse_response_headers(response*, vector<string>);
 void parse_response_content(response*, char*, long long int, long long int);
 
-response* parse_response(char* body) {
+response* parse_response(string body) {
     response* response = new struct response();
-    string body_str = body;
-    long long int seperate_line_index = body_str.find("\r\n\r\n");
-    vector<string> headers = split(body_str.substr(0, seperate_line_index), "\r\n");
-    
+    long long int seperate_line_index = body.find("\r\n\r\n");
+    vector<string> headers = split(body.substr(0, seperate_line_index), "\r\n");
+    if (!headers.size())
+        return response;
     parse_response_status(response, headers[0]);
     parse_response_headers(response, vector<string>(headers.begin() + 1, headers.end()));
     
-    if (response->status == OK && seperate_line_index + 4 != string::npos) {
-        long long int length = response->get_content_length(),
-            idx = seperate_line_index + 4;
-        parse_response_content(response, body, idx, length);
-    }
+//    if (response->status == OK && seperate_line_index + 4 != string::npos) {
+//        long long int length = response->get_content_length(),
+//            idx = seperate_line_index + 4;
+//        parse_response_content(response, body, idx, length);
+//    }
     return response;
 }
 

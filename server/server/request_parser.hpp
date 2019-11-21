@@ -17,6 +17,6 @@
 
 using namespace std;
 
-request* parse_request(char* request_body);
+request* parse_request(string request_body);
 
 #endif /* request_parser_hpp */

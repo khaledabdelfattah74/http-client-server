@@ -33,6 +33,7 @@ response* build_response(request* req) {
             response->status = OK_STATUS;
             response->set_content_type(EXTENSIONS[get_file_extension(req->file_path)]);
             response->set_connection_status("keep-alive");
+            response->headers["File-Path"] = req->file_path;
             set_response_content(infile, response);
             infile.close();
         }
@@ -58,7 +59,7 @@ void set_response_content(ifstream& infile, response* response) {
 
 string get_file_extension(string file_name) {
     vector<string> tokens = split(file_name, ".");
-    if (tokens.size() == 1)
+    if (tokens.size() <= 1)
         return "";
     else
         return tokens[1];

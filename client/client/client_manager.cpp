@@ -9,7 +9,6 @@
 #include "client_manager.hpp"
 
 void Client::initiate(string host_name, int port_number) {
-    int client_fd = build_socket(host_name, port_number);
     vector<string> client_requests = read_from_file("/Users/khaledabdelfattah/Documents/workspace/networks/HTTP-Client-Server/client/client/input_file.txt");
     // Parsing requests
     map<pair<string, int>, vector<request*>> requests = parse_client_requests(client_requests);
@@ -18,6 +17,4 @@ void Client::initiate(string host_name, int port_number) {
          itr != requests.end(); itr++) {
         handle_requests(itr->second);
     }
-    
-    close(client_fd);
 }

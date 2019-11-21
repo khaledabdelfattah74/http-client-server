@@ -32,17 +32,11 @@ request* parse_client_request(string client_request) {
 }
 
 map<pair<string, int>, vector<request*>> parse_client_requests(vector<string> client_requests) {
-//    vector<request*> requests;
     map<pair<string, int>, vector<request*>> requests;
     for (string client_request : client_requests) {
         request* request = parse_client_request(client_request);
         pair<string, int> key = {request->headers["Host"], request->port_number};
         requests[key].push_back(request);
-//        if (requests.count(key)) {
-//            requests[key].push_back(request);
-//        } else {
-//            requests[key] = vector<requests*>();
-//        }
     }
     return requests;
 }

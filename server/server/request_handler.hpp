@@ -17,6 +17,6 @@
 
 using namespace std;
 
-response* handle_request(char* request_body);
+response* handle_request(request*);
 
 #endif /* request_handler_hpp */

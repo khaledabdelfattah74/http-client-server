@@ -66,13 +66,15 @@ typedef struct response {
         headers += "\r\n";
         long long length = headers.length();
         if (this->request_type == GET && this->status == OK_STATUS) {
-            length += this->get_content_length();
+            length += this->get_content_length() + 2;
             char* body = new char[length];
             int i = 0;
             for (; i < headers.length(); i++)
                 body[i] = headers[i];
             for (int j = 0; j < this->get_content_length(); j++, i++)
                 body[i] = this->body[j];
+            body[i++] = '\r';
+            body[i] = '\n';
             this->body = body;
         } else {
             this->body = new char[length];

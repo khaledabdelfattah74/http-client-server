@@ -79,9 +79,9 @@
 			isa = PBXGroup;
 			children = (
 				E91F47C42362156500FE0329 /* main.cpp */,
-				E91F47DF23624E5900FE0329 /* server_manager.cpp */,
 				E9CDBE9C2363C8DB009ED581 /* connection_worker.cpp */,
 				E9CDBE9D2363C8DB009ED581 /* connection_worker.hpp */,
+				E91F47DF23624E5900FE0329 /* server_manager.cpp */,
 				E91F47E023624E5900FE0329 /* server_manager.hpp */,
 				E9CDBE8E2363A0C8009ED581 /* request_parser.cpp */,
 				E9CDBE8F2363A0C8009ED581 /* request_parser.hpp */,

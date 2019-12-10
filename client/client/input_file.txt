@@ -1,2 +1,2 @@
 client_get test.html localhost 80
-client_get rails.png localhost 80
+client_post rails.png localhost 80
